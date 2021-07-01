@@ -17,10 +17,18 @@ layout = [
   [sg.Text('Temporal Resolution:'),sg.InputCombo(
     ["Minute","Hourly","Daily","Weekly","Monthly","Annually"]
     )],
-  [sg.Text('Start Month:'),sg.Input(key="Start")],
-  [sg.Text('Start Year:'),sg.Slider(
-    range=(1900, 2050),orientation='h',size=(150,10),
-  )],
+  [sg.Text('Start Date:'),
+    sg.Input(
+      key='Start', 
+      size=(20,1)), 
+    sg.CalendarButton(
+      'Select Start Date', 
+      close_when_date_chosen=True,  
+      target='Start', 
+      location=(0,0), 
+      no_titlebar=False, 
+      format='%Y-%M-%d'
+    )],
   [sg.Text('End Month:'),sg.Input(key="End")],
   [sg.Text('Version:'),sg.Input(key="v")],
   [sg.Button('Read'),sg.Exit()]
