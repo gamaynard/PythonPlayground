@@ -45,4 +45,4 @@ while True:
     break
   
 window.close()
-"_".join([values[0],values["Program"]])
+dataName="_".join([values[0],values["Program"],values["Explain"],values["Spatial"],values[1],values["Start"],values["End"],values["v"]])
