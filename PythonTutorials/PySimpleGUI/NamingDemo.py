@@ -8,7 +8,9 @@ sg.theme('NeutralBlue')
 
 ## Create a layout
 layout = [
-  [sg.Text('Global Identifier (NEFSC or External):'), sg.Input(key="Global")],
+  [sg.Text('Global Identifier:'), sg.Listbox(
+    values=['NEFSC','NOAA','External']
+    )],
   [sg.Text('Grouping identifier (Program Name):'), sg.Input(key="Program")],
   [sg.Text('Data Explanation (?):'), sg.Input(key="Explain")],
   [sg.Text('Spatial Scale (SELECT FROM LIST):'), sg.Input(key="Spatial")],
