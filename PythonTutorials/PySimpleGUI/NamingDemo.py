@@ -41,8 +41,7 @@ window=sg.Window('ERDDAP Dataset Name Generator',layout)
 while True:
   event, values = window.read()
   print(event, values)
-  if event == sg.WIN_CLOSED or event == "Exit":
-    break
-  
+  if event == "Exit":
+    dataName="_".join([values[0],values["Program"],values["Explain"],values["Spatial"],values[1],values["Start"],values["End"],values["v"]])
+    sg.popup("Filename: {dataname[0]}")
 window.close()
-dataName="_".join([values[0],values["Program"],values["Explain"],values["Spatial"],values[1],values["Start"],values["End"],values["v"]])
