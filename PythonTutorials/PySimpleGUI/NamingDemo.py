@@ -32,7 +32,7 @@ layout = [
   ## I'm not quite sure how to control version numbers, I guess that's up to the
   ## individual project?
   [sg.Text('Version:'),sg.Input(key="v")],
-  [sg.Exit()]
+  [sg.Button("Submit"),sg.Exit()]
 ]
 
 ## Create a window
@@ -42,10 +42,10 @@ window=sg.Window('ERDDAP Dataset Name Generator',layout)
 while True:
   event, values = window.read()
   print(event, values)
-  if event == "Exit":
+  if event == "Submit":
     dataName="_".join([values[0],values["Program"],values["Explain"],values["Spatial"],values[1],values["Start"],values["End"],values["v"]])
     pyperclip.copy(dataName)
     sg.popup(f"Filename: {dataName} Press <OK> to copy to clipboard")
-  if event == sg.WIN_CLOSED:
+  if event == sg.WIN_CLOSED or event == "Exit":
     break
 window.close()
