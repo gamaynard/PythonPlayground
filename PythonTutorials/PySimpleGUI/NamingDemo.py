@@ -2,6 +2,7 @@
 
 ## Import the simple GUI library
 import PySimpleGUI as sg
+import pyperclip
 
 ## Set the color theme
 sg.theme('NeutralBlue')
@@ -43,5 +44,8 @@ while True:
   print(event, values)
   if event == "Exit":
     dataName="_".join([values[0],values["Program"],values["Explain"],values["Spatial"],values[1],values["Start"],values["End"],values["v"]])
-    sg.popup("Filename: {dataname[0]}")
+    pyperclip.copy(dataName)
+    sg.popup(f"Filename: {dataName} Press <OK> to copy to clipboard")
+  if event == sg.WIN_CLOSED:
+    break
 window.close()
